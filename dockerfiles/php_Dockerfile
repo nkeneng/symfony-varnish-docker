@@ -83,7 +83,7 @@ COPY ./app/ .
 
 RUN rm -Rf public/build
 
-COPY --from=${PROJECT_LOWER}-webpack /srv/app/public/build public/build
+COPY --from=${PROJECT}-webpack /srv/app/public/build public/build
 #RUN rm -Rf docker/
 
 RUN set -eux; \
