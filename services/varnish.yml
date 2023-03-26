@@ -1,0 +1,18 @@
+version: "3.4"
+
+services:
+
+  varnish:
+    image: ${ARCH}/varnish
+    environment:
+      VARNISH_BACKEND_PORT: 80
+      VARNISH_BACKEND_IP: caddy
+      UPSTREAM: caddy
+      UPSTREAM_PORT: 80
+      PHP_SERVICE: php
+    volumes:
+      - ../docker/varnish/default.vcl:/etc/varnish/default.vcl:ro
+      - ../docker/varnish/fos:/etc/varnish/fos:ro
+    depends_on:
+      - caddy
+      - php

@@ -1,0 +1,40 @@
+version: "3.4"
+
+services:
+
+  php:
+    extends:
+      file: ./services/php.yml
+      service: php
+
+  caddy:
+    extends:
+      file: ./services/caddy_${SYSTEM}.yml
+      service: caddy
+    environment:
+      - SYSTEM=${SYSTEM}
+
+  varnish:
+    extends:
+      file: ./services/varnish.yml
+      service: varnish
+
+  database:
+    extends:
+      file: ./services/database.yml
+      service: database
+
+volumes:
+  php_socket:
+  caddy_data:
+  caddy_config:
+  mysql:
+  docker:
+
+networks:
+  network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.62.0.0/16
+          gateway: 172.62.0.1

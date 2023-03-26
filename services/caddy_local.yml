@@ -1,0 +1,27 @@
+version: "3.4"
+
+services:
+
+  caddy:
+    image: portfolio-caddy
+    depends_on:
+      - php
+    environment:
+      SERVER_NAME: ${SERVER_NAME:-localhost, caddy:80}
+      TRUSTED_PROXIES: ${TRUSTED_PROXIES:-172.62.0.0/16}
+      VARNISH_UPSTREAM: ${VARNISH_UPSTREAM:-varnish:80}
+      MERCURE_PUBLISHER_JWT_KEY: ${CADDY_MERCURE_JWT_SECRET:-!ChangeThisMercureHubJWTSecretKey!}
+      MERCURE_SUBSCRIBER_JWT_KEY: ${CADDY_MERCURE_JWT_SECRET:-!ChangeThisMercureHubJWTSecretKey!}
+    restart: unless-stopped
+    volumes:
+      - php_socket:/var/run/php
+      - caddy_data:/data
+      - caddy_config:/config
+    labels:
+      - "traefik.http.routers.${PROJECT}.rule=Host(`${PROJECT}.local`)"
+      - "traefik.enable=true"
+    networks:
+      - traefik_web
+
+networks:
+  traefik_web:

@@ -1,0 +1,16 @@
+version: "3.4"
+
+# Production environment override
+services:
+  php:
+    environment:
+      APP_SECRET: ${APP_SECRET}
+      APP_ENV: ${APP_ENV:-prod}
+      MERCURE_JWT_SECRET: ${CADDY_MERCURE_JWT_SECRET:-!ChangeThisMercureHubJWTSecretKey! }
+    volumes:
+      - ./app/config/secrets/prod/prod.decrypt.private.php:/srv/app/config/secrets/prod/prod.decrypt.private.php
+
+  caddy:
+    environment:
+      MERCURE_PUBLISHER_JWT_KEY: ${CADDY_MERCURE_JWT_SECRET:-!ChangeThisMercureHubJWTSecretKey!}
+      MERCURE_SUBSCRIBER_JWT_KEY: ${CADDY_MERCURE_JWT_SECRET:-!ChangeThisMercureHubJWTSecretKey!}
