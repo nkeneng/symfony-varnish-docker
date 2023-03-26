@@ -26,9 +26,7 @@ services:
   ###< doctrine/doctrine-bundle ###
 
   webpack:
-    build:
-      context: ./dockerfiles/
-      dockerfile: webpack_Dockerfile
+    image: ${PROJECT}-webpack
     volumes:
       - ./app/public:/srv/app/public
       - ./app/assets:/srv/app/assets

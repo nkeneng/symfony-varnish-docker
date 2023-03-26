@@ -9,7 +9,7 @@ FROM composer:${COMPOSER_VERSION} AS symfony_composer
 
 WORKDIR /srv/app
 
-COPY ./app/composer.json ./
+COPY ../app/composer.json ./
 
 RUN composer install --prefer-dist --no-dev --no-autoloader --no-scripts --no-progress;
 
@@ -23,10 +23,10 @@ WORKDIR /srv/app
 RUN mkdir public
 RUN mkdir -p vendor/symfony
 
-COPY ./app/package.json  ./
-COPY ./app/assets/  ./assets/
-COPY ./app/webpack.config.js   ./
-COPY ./app/templates  ./templates
+COPY ../app/package.json  ./
+COPY ../app/assets/  ./assets/
+COPY ../app/webpack.config.js   ./
+COPY ../app/templates  ./templates
 
 COPY --from=symfony_composer /srv/app/vendor/symfony/  /srv/app/vendor/symfony/
 
