@@ -31,10 +31,14 @@ volumes:
   mysql:
   docker:
 
+
 networks:
+  default:
   network:
     driver: bridge
     ipam:
       config:
         - subnet: 172.62.0.0/16
           gateway: 172.62.0.1
+  traefik_web:
+    external: true

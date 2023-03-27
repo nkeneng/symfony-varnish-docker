@@ -22,6 +22,4 @@ services:
       - "traefik.enable=true"
     networks:
       - traefik_web
-
-networks:
-  traefik_web:
+      - default

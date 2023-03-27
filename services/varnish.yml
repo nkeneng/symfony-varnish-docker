@@ -1,7 +1,6 @@
 version: "3.4"
 
 services:
-
   varnish:
     image: ${ARCH}/varnish
     environment:
@@ -16,3 +15,5 @@ services:
     depends_on:
       - caddy
       - php
+    networks:
+      - default
