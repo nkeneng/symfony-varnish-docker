@@ -30,5 +30,7 @@ services:
     volumes:
       - ./app/public:/srv/app/public
       - ./app/assets:/srv/app/assets
+      - ./app/webpack.config.js:/srv/app/webpack.config.js
+      - ./app/package.json:/srv/app/package.json
     working_dir: /srv/app
     command: "yarn start"
