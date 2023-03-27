@@ -5,7 +5,7 @@ DOCKER_COMPOSE_FILE = docker-compose.yml
 ROOT_FOLDER = Portfolio
 
 ifeq ($(shell uname -m),aarch64)
-    export ARCH := arm64
+    export ARCH := arm64v8
 else
     export ARCH := amd64
 endif
