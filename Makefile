@@ -16,6 +16,7 @@ install:
 	composer require webapp --no-interaction && \
 	composer require friendsofsymfony/http-cache-bundle symfony/http-client nyholm/psr7 guzzlehttp/promises webpack && \
 	composer require nkeneng/httpcachebundle-varnish-config:@dev && \
+	npm install --save-dev purgecss-webpack-plugin sass sass-loader postcss-loader path glob-all file-loader  && \
 	php vendor/nkeneng/httpcachebundle-varnish-config/src/setup.php
 
 build:
