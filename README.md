@@ -1,5 +1,7 @@
 # Symfony Project Template + docker + varnish
 
+**I tried it with a docker version 20 and didn't work , then I upgraded to 23 and it worked fine**
+
 This is a template repository for bootstrapping a Symfony project with additional PHP libraries integrated. The included libraries are:
 
 * friendsofsymfony/http-cache-bundle
