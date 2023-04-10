@@ -18,7 +18,7 @@ The project runs inside a Docker stack composed of
 * MySQL
 * Varnish. 
 
-** 💡💡 The Docker stack is based on the [dunglas/symfony-docker](https://github.com/dunglas/symfony-docker) template.**
+**💡💡 This Docker stack is based on the [dunglas/symfony-docker](https://github.com/dunglas/symfony-docker) template.**
 
 ## Getting Started
 
