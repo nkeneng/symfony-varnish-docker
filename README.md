@@ -25,17 +25,18 @@ The project runs inside a Docker stack composed of
 To use this template, follow these steps:
 
 1. Define the required environment variables in the .env file.
-2. Do a search and replace in the dockerfiles directory to replace ${PROJECT} with the name of your project in lowercase letters. For example, if your project name is MyProject, you would replace ${PROJECT} with myproject.
+2. Replace the PROJECT variable in the .env file to your project name in lowercase
+3. Do a search and replace in the dockerfiles directory to replace ${PROJECT} with the name of your project you inserted in the .env file . For example, if your project name is MyProject, you would replace ${PROJECT} with myproject.
    * _**That is because the variable ${PROJECT} i tried to use is not working. So I have to replace it manually.**_
-3. Install the symfony app using the command: 
+4. Install the symfony app using the command: 
     ````bash
    make install
    ````
-4. Build the Docker images using the command:
+5. Build the Docker images using the command:
     ````bash
    make build
    ````
-5. Run the Docker containers using the command:
+6. Run the Docker containers using the command:
     ````bash
    make up
    ````
