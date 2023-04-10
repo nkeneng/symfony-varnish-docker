@@ -1,0 +1,8 @@
+{
+    "name": "nkeneng/symfony-varnish-skeleton",
+    "description": "The Symfony Varnish Skeleton template",
+    "type": "library",
+    "license": "MIT",
+    "version": "1.0.0",
+    "require": {}
+  }
